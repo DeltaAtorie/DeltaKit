@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="system">
+      <UniqueIdentifier>{22dd8095-74f9-46df-81a1-36675a040b1f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="system\system.cpp">
+      <Filter>system</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Data2D\Code\Camera2D.cpp" />
+    <ClCompile Include="Data2D\Code\Collision2D.cpp" />
+    <ClCompile Include="Data2D\Code\Helper2D.cpp" />
+    <ClCompile Include="Data2D\Code\Load2D.cpp" />
+    <ClCompile Include="Data2D\Code\Sound2D.cpp" />
+    <ClCompile Include="Operation\Code\Controller.cpp" />
+    <ClCompile Include="Operation\Code\Mouse.cpp" />
+    <ClCompile Include="Sprite2D\Code\Animation2D.cpp" />
+    <ClCompile Include="Sprite2D\Code\Ending2D.cpp" />
+    <ClCompile Include="Sprite2D\Code\Opening2D.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="system\system.h">
+      <Filter>system</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="Data2D\Code\Camera2D.h" />
+    <ClInclude Include="Data2D\Code\Collision2D.h" />
+    <ClInclude Include="Data2D\Code\Helper2D.h" />
+    <ClInclude Include="Data2D\Code\Load2D.h" />
+    <ClInclude Include="Data2D\Code\Sound2D.h" />
+    <ClInclude Include="Data2D\Data2D.h" />
+    <ClInclude Include="GameCode\Actor\GameActor.h" />
+    <ClInclude Include="GameCode\BackGround\GameBackGround.h" />
+    <ClInclude Include="GameCode\Other\GameOther.h" />
+    <ClInclude Include="GameCode\Sprite\GameSprite.h" />
+    <ClInclude Include="GameCode\GameCode.h" />
+    <ClInclude Include="Operation\Code\Controller.h" />
+    <ClInclude Include="Operation\Code\Mouse.h" />
+    <ClInclude Include="Operation\Operation.h" />
+    <ClInclude Include="Sprite2D\Code\Animation2D.h" />
+    <ClInclude Include="Sprite2D\Code\Ending2D.h" />
+    <ClInclude Include="Sprite2D\Code\Opening2D.h" />
+    <ClInclude Include="Sprite2D\Sprite2D.h" />
+    <ClInclude Include="Storage2D\Header2D.h" />
+    <ClInclude Include="Storage2D\Utility2D.h" />
+  </ItemGroup>
+</Project>
