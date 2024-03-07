@@ -1,15 +1,19 @@
 #pragma once
-struct Sprite : public IGameObject
+struct SpriteMove : public IGameObject
 {
 public:
 	void Init(const char* Texture)
 	{
-		
+		M_Sprite.Init(Texture , M_Wide , M_Height);
+		M_Sprite.Update();
 	}
 private:
 	SpriteRender M_Sprite;
 	float M_Wide   = 0.0f;
 	float M_Height = 0.0f;
+
+	Vector3 M_Position  = { 0.0f , 0.0f , 0.0f };
+	Vector3 M_MoveSpeed = { 0.0f , 0.0f , 0.0f };
 };
 struct Percent : public IGameObject
 {
