@@ -12,6 +12,8 @@ class Game : public IGameObject
 public:
 	Game();
 	~Game();
+	void Update();
+	void Render(RenderContext& rc);
 private:
 	Sprite2D* P_Sprite2D   = nullptr;
 	Data2D* P_Data2D       = nullptr;

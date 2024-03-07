@@ -26,3 +26,12 @@ Game::~Game()
 	P_Other->OtherDeleteGO();
 	P_Sprite->SpriteDeleteGO();
 }
+
+void Game::Update()
+{
+	
+}
+void Game::Render(RenderContext& rc)
+{
+	
+}
