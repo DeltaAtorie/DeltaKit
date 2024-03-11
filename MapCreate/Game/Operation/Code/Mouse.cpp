@@ -1,28 +1,20 @@
 #include "stdafx.h"
 #include "Mouse.h"
+#include "system/system.h"
 #include "Storage2D/Header2D.h"
 bool Mouse::Start()
 {
-	HWND hwnd = GetForegroundWindow();
-	RECT rect;
-	GetWindowRect(hwnd, &rect); 
-	float width = rect.right - rect.left;
-	float height = rect.bottom - rect.top;
-	M_Client.x = width;
-	M_Client.y = height;
+	M_Client.x = GetSystemMetrics(SM_CXSCREEN);;
+	M_Client.y = GetSystemMetrics(SM_CYSCREEN);
 
 	P_Data2D = FindGO<Data2D>("data2d");
 	P_Data2D->Data2DFindGO();
-	P_Data2D->P_Collision2D->SquareDataSet(30, 30, M_MouseCursorPosition.x, M_MouseCursorPosition.y, "Mouse", "Non");
+	P_Data2D->P_Collision2D->SquareDataSet(30, 30, M_Converted.x, M_Converted.y, "Mouse", "Non");
 	return true;
 }
 void Mouse::Update()
 {
-	M_HWnd = GetConsoleWindow();
-
     GetCursorPos(&M_CursorPosition);
-
-    ScreenToClient(M_HWnd, &M_CursorPosition);
 
     MouseSet();
 
@@ -30,23 +22,11 @@ void Mouse::Update()
 
 	MouseFlagJudge();
 
-    MouseCurSorSetPosition(M_MouseCursorPosition);
-
-	P_Data2D->P_Collision2D->SquareSetPosition(M_MouseCursorPosition.x, M_MouseCursorPosition.y, "Mouse");
-}
-
-void Mouse::MouseCurSorSetPosition(Vector3& Position)
-{
-	Position.x = (M_Converted.x - (M_Window.x / 2));
-	Position.y = (M_Converted.y - (M_Window.y / 2)) * -1;
+	P_Data2D->P_Collision2D->SquareSetPosition(M_Converted.x, M_Converted.y, "Mouse");
 }
 
 void Mouse::MouseMove()
 {
-	//èâä˙âª
-	M_MouseCursorMoveSpeed.x = 0.0f;
-	M_MouseCursorMoveSpeed.y = 0.0f;
-
 	M_Delta.x = M_Converted.x - M_PrevMouse.x;
 	M_Delta.y = M_Converted.y - M_PrevMouse.y;
 
@@ -60,7 +40,7 @@ void Mouse::MouseMove()
 void Mouse::MouseSet()
 {
 	M_Converted.x = (M_CursorPosition.x * M_Window.x) / M_Client.x;
-	M_Converted.y = (M_CursorPosition.y * M_Window.y) / M_Client.y;
+	M_Converted.y = M_Window.y - (M_CursorPosition.y * M_Window.y) / M_Client.y;
 }
 
 void Mouse::MouseFlagJudge()

@@ -60,7 +60,7 @@ public:
 //îªíËÇÃçXêV
 	void SquareSetPosition(float PositionX , float PositionY , const char* ObjectName)
 	{
-		for (int Count = 0 ; Count < 256 ; Count++)
+		for (int Count = 0 ; Count < 2048; Count++)
 		{
 			if (strcmp(Square[Count][static_cast<int>(SquareDirection::NON)].ObjectName, ObjectName) == 0)
 			{
@@ -79,7 +79,7 @@ public:
 	}
 	void CircleSetPosition(float PositionX, float PositionY, const char* ObjectName)
 	{
-		for (int Count = 0; Count < 256; Count++)
+		for (int Count = 0; Count < 2048; Count++)
 		{
 			if (strcmp(Circle[Count].ObjectName, ObjectName) == 0)
 			{
@@ -141,8 +141,8 @@ private:
 		Square[Count][static_cast<int>(SquareDirection::LEFT)].LowerRightVertexY = Square[Count][static_cast<int>(SquareDirection::NON)].LowerRightVertexY + (EmptyWidth);
 	}
 private:
-	SquareData Square[256][5];
-	CircleData Circle[256];
+	SquareData Square[2048][5];
+	CircleData Circle[2048];
 	float EmptyWidth = 15.0f;
 	float InitValue  = 50000.0f;
 };

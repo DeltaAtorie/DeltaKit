@@ -99,3 +99,8 @@ bool DispatchWindowMessage()
 	}
 	return msg.message != WM_QUIT;
 }
+
+HWND GetWindowHandle()
+{
+	return g_hWnd;
+}

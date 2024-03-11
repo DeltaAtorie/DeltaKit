@@ -3,7 +3,7 @@
 //îªíËÇÃê∂ê¨
 void Collision2D::SquareDataSet(float  Wide , float Height , float PositionX , float PositionY , const char* ObjectName , const char* Tag)
 {
-	for (int Count = 0 ; Count < 256 ; Count++)
+	for (int Count = 0 ; Count < 2048 ; Count++)
 	{
 		if (strcmp(Square[Count][static_cast<int>(SquareDirection::NON)].ObjectName, "nullptr") == 0)
 		{
@@ -22,7 +22,7 @@ void Collision2D::SquareDataSet(float  Wide , float Height , float PositionX , f
 }
 void Collision2D::CircleDataSet(float Radius , float CenterX , float CenterY , const char* ObjectName , const char* Tag)
 {
-	for (int Count = 0; Count < 256; Count++)
+	for (int Count = 0; Count < 2048; Count++)
 	{
 		if (strcmp(Circle[Count].ObjectName , "nullptr") == 0)
 		{
@@ -39,7 +39,7 @@ void Collision2D::CircleDataSet(float Radius , float CenterX , float CenterY , c
 //îªíËÇÃï°êª
 bool Collision2D::CopyBodyData(SquareData& Body , const char* ObjectName)
 {
-	for (int Count = 0 ; Count < 256 ; Count++)
+	for (int Count = 0 ; Count < 2048 ; Count++)
 	{
 		if (strcmp(Square[Count][static_cast<int>(SquareDirection::NON)].ObjectName, ObjectName) == 0)
 		{
@@ -56,7 +56,7 @@ bool Collision2D::CopyBodyData(SquareData& Body , const char* ObjectName)
 }
 bool Collision2D::CopyBodyData(CircleData& Body , const char* ObjectName)
 {
-	for (int Count = 0; Count < 256; Count++)
+	for (int Count = 0; Count < 2048; Count++)
 	{
 		if (strcmp(Circle[Count].ObjectName , ObjectName) == 0)
 		{
@@ -99,9 +99,9 @@ bool Collision2D::CopyBodysData(CircleData& Body , const char* Tag , int Count)
 	return false;
 }
 
-bool Collision2D::CopyEmptyData(SquareData& Body  , const char* ObjectName , SquareDirection Direction)
+bool Collision2D::CopyEmptyData(SquareData& Body , const char* ObjectName , SquareDirection Direction)
 {
-	for (int Count = 0 ; Count < 256 ; Count++)
+	for (int Count = 0 ; Count < 2048 ; Count++)
 	{
 		if (strcmp(Square[Count][static_cast<int>(SquareDirection::NON)].ObjectName, ObjectName) == 0)
 		{
@@ -114,7 +114,7 @@ bool Collision2D::CopyEmptyData(SquareData& Body  , const char* ObjectName , Squ
 	}
 	return false;
 }
-bool Collision2D::CopyEmptysData(SquareData& Body , const char* Tag        , SquareDirection Direction , int Count)
+bool Collision2D::CopyEmptysData(SquareData& Body , const char* Tag , SquareDirection Direction , int Count)
 {
 	if (strcmp(Square[Count][static_cast<int>(SquareDirection::NON)].Tag, Tag) == 0)
 	{
