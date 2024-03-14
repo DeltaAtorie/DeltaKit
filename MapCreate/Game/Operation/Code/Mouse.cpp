@@ -9,7 +9,7 @@ bool Mouse::Start()
 
 	P_Data2D = FindGO<Data2D>("data2d");
 	P_Data2D->Data2DFindGO();
-	P_Data2D->P_Collision2D->SquareDataSet(30, 30, M_Converted.x, M_Converted.y, "Mouse", "Non");
+	P_Data2D->P_Collision2D->SquareDataSet(30, 30, M_Converted , "Mouse", "Non");
 	return true;
 }
 void Mouse::Update()
@@ -22,7 +22,7 @@ void Mouse::Update()
 
 	MouseFlagJudge();
 
-	P_Data2D->P_Collision2D->SquareSetPosition(M_Converted.x, M_Converted.y, "Mouse");
+	P_Data2D->P_Collision2D->SquareSetPosition(M_Converted , "Mouse");
 }
 
 void Mouse::MouseMove()

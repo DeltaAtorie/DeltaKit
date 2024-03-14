@@ -15,166 +15,137 @@ namespace nsK2EngineLow
 		AlphaBlendMode alphaBlendMode
 	)
 	{
-		InitData.m_fxFilePath = "Assets/shader/ColorOut.fx";
-		InitData.m_vsEntryPointFunc = "VSMain";
-		InitData.m_psEntryPoinFunc = "PSMain";
+		M_InitData.m_fxFilePath = "Assets/shader/ColorOut.fx";
+		M_InitData.m_vsEntryPointFunc = "VSMain";
+		M_InitData.m_psEntryPoinFunc = "PSMain";
 		
-		InitData.m_ddsFilePath[0] = Sprite;
+		M_InitData.m_ddsFilePath[0] = Sprite;
 
-		InitData.m_width = static_cast<UINT>(w);
-		InitData.m_height = static_cast<UINT>(h);
+		M_InitData.m_width = static_cast<UINT>(w);
+		M_InitData.m_height = static_cast<UINT>(h);
 
-		InitData.m_alphaBlendMode = alphaBlendMode;
+		M_InitData.m_alphaBlendMode = alphaBlendMode;
 
-		M_WideAndHeight.x = w;
-		M_WideAndHeight.y = h;
-
-		m_sprite.Init(InitData);
+		M_Sprite.Init(M_InitData);
 	}
 
-	void SpriteRender::WeatherInit
+	void SpriteRender::Init
 	(
-		const char* Sprite,
+		CountClass State,
 		const float w,
 		const float h,
 		AlphaBlendMode alphaBlendMode
 	)
 	{
-		InitData.m_fxFilePath = "Assets/shader/Weather.fx";
-		InitData.m_vsEntryPointFunc = "VSMain";
-		InitData.m_psEntryPoinFunc = "PSMain";
+		M_InitData.m_fxFilePath = "Assets/shader/Count.fx";
 
-		InitData.m_ddsFilePath[0] = Sprite;
+		M_InitData.m_vsEntryPointFunc = "VSMain";
+		M_InitData.m_psEntryPoinFunc = "PSMain";
 
-		InitData.m_width = static_cast<UINT>(w);
-		InitData.m_height = static_cast<UINT>(h);
+		M_InitData.m_ddsFilePath[0] = "Assets/Sprite/Count2D/0.DDS";
+		M_InitData.m_ddsFilePath[1] = "Assets/Sprite/Count2D/1.DDS";
+		M_InitData.m_ddsFilePath[2] = "Assets/Sprite/Count2D/2.DDS";
+		M_InitData.m_ddsFilePath[3] = "Assets/Sprite/Count2D/3.DDS";
+		M_InitData.m_ddsFilePath[4] = "Assets/Sprite/Count2D/4.DDS";
+		M_InitData.m_ddsFilePath[5] = "Assets/Sprite/Count2D/5.DDS";
+		M_InitData.m_ddsFilePath[6] = "Assets/Sprite/Count2D/6.DDS";
+		M_InitData.m_ddsFilePath[7] = "Assets/Sprite/Count2D/7.DDS";
+		M_InitData.m_ddsFilePath[8] = "Assets/Sprite/Count2D/8.DDS";
+		M_InitData.m_ddsFilePath[9] = "Assets/Sprite/Count2D/9.DDS";
 
-		InitData.m_alphaBlendMode = alphaBlendMode;
+		M_InitData.m_width = static_cast<UINT>(w);
+		M_InitData.m_height = static_cast<UINT>(h);
 
-		m_sprite.Init(InitData);
+		M_InitData.m_expandConstantBuffer = &M_Count;
+		M_InitData.m_expandConstantBufferSize = sizeof(M_Count);
+
+		M_InitData.m_alphaBlendMode = alphaBlendMode;
+
+		M_Sprite.Init(M_InitData);
 	}
 
-	void SpriteRender::CurrentTimeInit
+	void SpriteRender::Init
 	(
-		const char* Sprite,
+		SymbolClass State,
 		const float w,
 		const float h,
 		AlphaBlendMode alphaBlendMode
 	)
 	{
-		InitData.m_fxFilePath = "Assets/shader/Time.fx";
+		M_InitData.m_fxFilePath = "Assets/shader/Symbol.fx";
 
-		InitData.m_vsEntryPointFunc = "VSMain";
-		InitData.m_psEntryPoinFunc = "PSMain";
+		M_InitData.m_vsEntryPointFunc = "VSMain";
+		M_InitData.m_psEntryPoinFunc = "PSMain";
 
-		InitData.m_ddsFilePath[0] = "Assets/Sprite/Count2D/0.DDS";
-		InitData.m_ddsFilePath[1] = "Assets/Sprite/Count2D/1.DDS";
-		InitData.m_ddsFilePath[2] = "Assets/Sprite/Count2D/2.DDS";
-		InitData.m_ddsFilePath[3] = "Assets/Sprite/Count2D/3.DDS";
-		InitData.m_ddsFilePath[4] = "Assets/Sprite/Count2D/4.DDS";
-		InitData.m_ddsFilePath[5] = "Assets/Sprite/Count2D/5.DDS";
-		InitData.m_ddsFilePath[6] = "Assets/Sprite/Count2D/6.DDS";
-		InitData.m_ddsFilePath[7] = "Assets/Sprite/Count2D/7.DDS";
-		InitData.m_ddsFilePath[8] = "Assets/Sprite/Count2D/8.DDS";
-		InitData.m_ddsFilePath[9] = "Assets/Sprite/Count2D/9.DDS";
-		InitData.m_ddsFilePath[10] = Sprite;
+		M_InitData.m_ddsFilePath[0] = "Assets/Sprite/Symbol2D/Colon.DDS";
+		M_InitData.m_ddsFilePath[1] = "Assets/Sprite/Symbol2D/PerCent.DDS";
 
-		InitData.m_width = static_cast<UINT>(w);
-		InitData.m_height = static_cast<UINT>(h);
+		M_InitData.m_width = static_cast<UINT>(w);
+		M_InitData.m_height = static_cast<UINT>(h);
 
-		InitData.m_expandConstantBuffer = &S_CurrentTime;
-		InitData.m_expandConstantBufferSize = sizeof(S_CurrentTime);
+		int Symbol = static_cast<int>(State);
+		M_InitData.m_expandConstantBuffer = &Symbol;
+		M_InitData.m_expandConstantBufferSize = sizeof(Symbol);
 
-		InitData.m_alphaBlendMode = alphaBlendMode;
+		M_InitData.m_alphaBlendMode = alphaBlendMode;
 
-		m_sprite.Init(InitData);
+		M_Sprite.Init(M_InitData);
 	}
 
-	void SpriteRender::SymbolInit
+	void SpriteRender::Init
 	(
-		const char* Sprite,
-		int State,
-		const float w,
-		const float h,
-		AlphaBlendMode alphaBlendMode
-	)
-	{
-		InitData.m_fxFilePath = "Assets/shader/Symbol.fx";
-
-		InitData.m_vsEntryPointFunc = "VSMain";
-		InitData.m_psEntryPoinFunc = "PSMain";
-
-		InitData.m_ddsFilePath[0] = "Assets/Sprite/Symbol2D/Colon.DDS";
-		InitData.m_ddsFilePath[1] = "Assets/Sprite/Symbol2D/PerCent.DDS";
-		InitData.m_ddsFilePath[2] = Sprite;
-
-		InitData.m_width = static_cast<UINT>(w);
-		InitData.m_height = static_cast<UINT>(h);
-
-		S_Symbol.State = State;
-		InitData.m_expandConstantBuffer = &S_Symbol;
-		InitData.m_expandConstantBufferSize = sizeof(S_Symbol);
-
-		InitData.m_alphaBlendMode = alphaBlendMode;
-
-		m_sprite.Init(InitData);
-	}
-
-	void SpriteRender::AnimationInit
-	(
+		FrameClass State,
 		const char* Sprite[],
-		int FrameLimit,
 		const float w,
 		const float h,
 		AlphaBlendMode alphaBlendMode
 	)
 	{
-		InitData.m_fxFilePath = "Assets/shader/Animation.fx";
-		InitData.m_vsEntryPointFunc = "VSMain";
-		InitData.m_psEntryPoinFunc = "PSMain";
+		M_InitData.m_fxFilePath = "Assets/shader/Animation.fx";
+		M_InitData.m_vsEntryPointFunc = "VSMain";
+		M_InitData.m_psEntryPoinFunc = "PSMain";
 
-		for (int i = 0 ; i < FrameLimit ; i++)
-		{InitData.m_ddsFilePath[i] = Sprite[i];}
+		for (int i = 0 ; i < static_cast<int>(State); i++)
+		{M_InitData.m_ddsFilePath[i] = Sprite[i];}
 
-		InitData.m_width = static_cast<UINT>(w);
-		InitData.m_height = static_cast<UINT>(h);
+		M_InitData.m_width = static_cast<UINT>(w);
+		M_InitData.m_height = static_cast<UINT>(h);
 
-		S_Animation.AnimationFrameLimit = FrameLimit;
-		InitData.m_expandConstantBuffer = &S_Animation;
-		InitData.m_expandConstantBufferSize = sizeof(S_Animation);
+		M_InitData.m_expandConstantBuffer = &M_Frame;
+		M_InitData.m_expandConstantBufferSize = sizeof(&M_Frame);
 
-		InitData.m_alphaBlendMode = alphaBlendMode;
+		M_InitData.m_alphaBlendMode = alphaBlendMode;
 
-		m_sprite.Init(InitData);
+		M_Sprite.Init(M_InitData);
 	}
 
-	void SpriteRender::PercentInit
+	void SpriteRender::Init
 	(
+		PercentClass State,
 		const char* Sprite1,
 		const char* Sprite2,
-		int State,
 		const float w,
 		const float h,
 		AlphaBlendMode alphaBlendMode
 	)
 	{
-		InitData.m_fxFilePath = "Assets/shader/Percent.fx";
-		InitData.m_vsEntryPointFunc = "VSMain";
-		InitData.m_psEntryPoinFunc = "PSMain";
+		M_InitData.m_fxFilePath = "Assets/shader/Percent.fx";
+		M_InitData.m_vsEntryPointFunc = "VSMain";
+		M_InitData.m_psEntryPoinFunc = "PSMain";
 
-		InitData.m_ddsFilePath[0] = Sprite1;
-		InitData.m_ddsFilePath[1] = Sprite2;
+		M_InitData.m_ddsFilePath[0] = Sprite1;
+		M_InitData.m_ddsFilePath[1] = Sprite2;
 
-		InitData.m_width = static_cast<UINT>(w);
-		InitData.m_height = static_cast<UINT>(h);
+		M_InitData.m_width = static_cast<UINT>(w);
+		M_InitData.m_height = static_cast<UINT>(h);
 
-		S_Percent.State = State;
-		InitData.m_expandConstantBuffer = &S_Percent;
-		InitData.m_expandConstantBufferSize = sizeof(S_Percent);
+		int Percent = static_cast<int>(State);
+		M_InitData.m_expandConstantBuffer = &M_Percent;
+		M_InitData.m_expandConstantBufferSize = sizeof(&M_Percent);
 
-		InitData.m_alphaBlendMode = alphaBlendMode;
+		M_InitData.m_alphaBlendMode = alphaBlendMode;
 
-		m_sprite.Init(InitData);
+		M_Sprite.Init(M_InitData);
 	}
 
 	void SpriteRender::Draw(RenderContext& rc)
@@ -184,7 +155,7 @@ namespace nsK2EngineLow
 	
 	void SpriteRender::OnRender2D(RenderContext& rc)
 	{
-		m_sprite.Draw(rc);
+		M_Sprite.Draw(rc);
 	}
 }
 

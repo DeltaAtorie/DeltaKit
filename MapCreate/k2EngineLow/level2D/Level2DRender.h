@@ -8,7 +8,7 @@ namespace nsK2EngineLow {
 	/// 2Dのレベルデータ。
 	/// </summary>
 	struct Level2DRenderObjectData {
-		Vector3 position = Vector3::Zero;		//座標。
+		Vector2 position = Vector2::Zero;		//座標。
 		Quaternion rotation = Quaternion::Identity;	//回転。
 		Vector3 scale = Vector3::One;			//拡大率。
 		int width = 0;		//横幅。

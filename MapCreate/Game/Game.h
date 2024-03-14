@@ -23,7 +23,4 @@ private:
 	GameBackGround* P_BackGround = nullptr;
 	GameOther* P_Other           = nullptr;
 	GameSprite* P_Sprite         = nullptr;
-
-	SpriteRender as;
-	ModelRender Unity;
 };

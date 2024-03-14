@@ -29,7 +29,7 @@ namespace nsK2EngineLow {
 			m_sprite.Draw(renderContext);
 		}
 	private:
-		Vector3 m_position;							//座標。
+		Vector2 m_position;							//座標。
 		Quaternion m_rotation;						//回転。
 		Vector3 m_scale = g_vec3One;				//大きさ。
 		Sprite m_sprite;							//スプライト。

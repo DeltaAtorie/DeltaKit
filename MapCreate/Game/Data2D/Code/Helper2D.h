@@ -26,7 +26,7 @@ public:
 
 //////画像の更新・描画一括処理//////
 		//全処理
-	void SpriteUpdate(SpriteRender* Sprite , Vector4* Color , Vector3* Position  , Vector3* Scale, Vector2* Pivot, int Size = 1, bool Common = false)
+	void SpriteUpdate(SpriteRender* Sprite , Vector4* Color , Vector2* Position  , Vector3* Scale, Vector2* Pivot, int Size = 1, bool Common = false)
 	{
 		if (Size == 1)
 		{
@@ -83,7 +83,7 @@ public:
 		}
 	}
 //座標・比率処理
-	void SpriteUpdate(SpriteRender* Sprite , Vector3* Position , Vector3* Scale = nullptr , int Size = 1, bool Common = false)
+	void SpriteUpdate(SpriteRender* Sprite , Vector2* Position , Vector3* Scale = nullptr , int Size = 1, bool Common = false)
 	{
 		if (Size == 1)
 		{

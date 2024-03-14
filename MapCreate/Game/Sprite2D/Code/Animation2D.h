@@ -11,7 +11,7 @@ public:
 	void Update();
 	void Render(RenderContext& rc);
 
-	void AnimationInit(const char* Sprite , float Wide , float Height , int AnimationFrameLimit , int FrameLimit , Vector3 Position = { 0.0f , 0.0f , 0.0f } , bool Loop = false)
+	void AnimationInit(const char* Sprite , float Wide , float Height , int AnimationFrameLimit , int FrameLimit , Vector2 Position = { 0.0f , 0.0f} , bool Loop = false)
 	{
 		M_Wide                = Wide;
 		M_Height              = Height;
@@ -31,7 +31,7 @@ public:
 	{M_State = AnimationState::ANIMATION_STOP;}
 private:
 	SpriteRender M_AnimationTexture;
-	Vector3 M_AnimationPosition;
+	Vector2 M_AnimationPosition;
 
 	const char* M_TextureFilePath[256];
 	char M_FilePath[256];

@@ -23,7 +23,6 @@ struct PSInput
 cbuffer Animationcb : register(b1)
 {
 	int AnimationFrame;
-	int AnimationFrameLimit;
 };
 
 Texture2D<float4> Texture[256] : register(t0);

@@ -22,7 +22,6 @@ struct PSInput
 
 cbuffer PercentCb : register(b1)
 {
-    int State;
 	float Percent;
 };
 
@@ -54,68 +53,12 @@ float4 PSMain( PSInput In ) : SV_Target0
 
 	TexColor1.rgb = pow(TexColor1.rgb, 1.0 / 2.2);
 	TexColor2.rgb = pow(TexColor2.rgb, 1.0 / 2.2);
-
-	if(State == 0)
-	{
-		if(In.uv.x <= TexPercent.x)
-		{
-			TexFinal = TexColor1;
-		}else{
-			TexFinal = TexColor2;
-		}
-	}
-
-	if(State == 1)
-	{
-		if(In.uv.x >= TexPercent.y)
-		{
-			TexFinal = TexColor1;
-		}else{
-			TexFinal = TexColor2;
-		}
-	}
 	
-	if(State == 2)
+	if(In.uv.x <= TexPercent.x)
 	{
-		UpperLeftX  = 0.5 - TexPercent.x;
-		UpperLeftY  = 0.5 - TexPercent.x;
-		LowerRightX = 0.5 + TexPercent.x;
-		LowerRightY = 0.5 + TexPercent.x;
-		if(In.uv.x >= UpperLeftX && In.uv.x <= LowerRightX && In.uv.y >= UpperLeftY && In.uv.y <= LowerRightY)
-		{
-			TexFinal = TexColor1;
-		}else{
-			TexFinal = TexColor2;
-		}
-	}
-
-	if(State == 3)
-	{
-		UpperLeftX  = 0.5 - TexPercent.x;
-		LowerRightX = 0.5 + TexPercent.x;
-		if(In.uv.x >= UpperLeftX && In.uv.x <= LowerRightX)
-		{
-			TexFinal = TexColor1;
-		}else{
-			TexFinal = TexColor2;
-		}
-	}
-
-	if(State == 4)
-	{
-		UpperLeftY  = 1.0 - TexPercent.y;
-		LowerRightY = 1.0;
-		if(In.uv.y >= UpperLeftY && In.uv.y <= LowerRightY)
-		{
-			TexFinal = TexColor2;
-		}else{
-			TexFinal = TexColor1;
-		}
-	}
-
-	if(State == 5)
-	{
-		TexFinal = TexColor1 * TexPercent.x + TexColor2 * TexPercent.y;
+		TexFinal = TexColor1;
+	}else{
+		TexFinal = TexColor2;
 	}
 	return TexFinal * mulColor;
 }

@@ -27,7 +27,7 @@ void Animation2D::Update()
 			}
 			M_Frame = 0;
 		}
-		M_AnimationTexture.AnimationSet(M_AnimationFrame);
+		M_AnimationTexture.FrameSet(M_AnimationFrame);
 		M_AnimationTexture.SetPosition(M_AnimationPosition);
 		M_AnimationTexture.Update();
 	}
@@ -46,7 +46,7 @@ void Animation2D::SetFilePath(const char* Sprite)
 		GetFileNumber(M_FilePath, i);
 		M_TextureFilePath[i] = _strdup(M_FilePath);
 	}
-	M_AnimationTexture.AnimationInit(M_TextureFilePath , M_AnimationFrameLimit , M_Wide , M_Height);
+	M_AnimationTexture.Init(FrameClass::FRAME15 , M_TextureFilePath , M_Wide , M_Height);
 }
 void Animation2D::GetFileNumber(char* Word , int AnimationFrame)
 {

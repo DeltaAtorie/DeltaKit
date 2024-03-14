@@ -51,7 +51,7 @@ public:
 private:
 	LoadState M_LoadState = LoadState::NON;
 	LoadFile M_LoadFile   = LoadFile::GAME;
-
+	
 	Percent S_Percent;
 
 	Sprite2D* P_Sprite2D         = nullptr;

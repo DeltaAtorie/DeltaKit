@@ -86,7 +86,7 @@ namespace nsK2EngineLow {
 		/// 1.0, 1.0で画像の右上。
 		/// UnityのuGUIに準拠。
 		/// </param>
-		void Update(const Vector3& pos, const Quaternion& rot, const Vector3& scale, const Vector2& pivot = DEFAULT_PIVOT);
+		void Update(const Vector2& pos, const Quaternion& rot, const Vector3& scale, const Vector2& pivot = DEFAULT_PIVOT);
 		/// <summary>
 		/// 描画。
 		/// </summary>

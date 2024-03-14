@@ -11,7 +11,7 @@ namespace nsK2EngineLow {
             Vector2 tex;
         };
     }
-    const Vector2	Sprite::DEFAULT_PIVOT = { 0.5f, 0.5f };
+    const Vector2	Sprite::DEFAULT_PIVOT = { 0.0f , 0.0f };
     Sprite::~Sprite()
     {
     }
@@ -220,8 +220,12 @@ namespace nsK2EngineLow {
         //ディスクリプタヒープを初期化。
         InitDescriptorHeap(initData);
     }
-    void Sprite::Update(const Vector3& pos, const Quaternion& rot, const Vector3& scale, const Vector2& pivot)
+    void Sprite::Update(const Vector2& pos, const Quaternion& rot, const Vector3& scale, const Vector2& pivot)
     {
+        Vector3 Position;
+        Position.x = pos.x;
+        Position.y = pos.y;
+        Position.z = 0.0f;
         //ピボットを考慮に入れた平行移動行列を作成。
         //ピボットは真ん中が0.0, 0.0、左上が-1.0f, -1.0、右下が1.0、1.0になるようにする。
         Vector2 localPivot = pivot;
@@ -239,7 +243,7 @@ namespace nsK2EngineLow {
             { halfSize.x * localPivot.x, halfSize.y * localPivot.y, 0.0f }
         );
         Matrix mTrans, mRot, mScale;
-        mTrans.MakeTranslation(pos);
+        mTrans.MakeTranslation(Position);
         mRot.MakeRotationFromQuaternion(rot);
         mScale.MakeScaling(scale);
         m_world = mPivotTrans * mScale;
